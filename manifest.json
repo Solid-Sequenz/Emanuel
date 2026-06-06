@@ -1,20 +1,21 @@
 {
   "name": "Emanuel",
   "short_name": "Emanuel",
-  "description": "Meine pers\u00f6nliche Alltags-App",
-  "start_url": "./index.html",
+  "description": "Meine persönliche Alltags-App",
+  "start_url": "https://solid-sequenz.github.io/Emanuel/index.html",
+  "scope": "https://solid-sequenz.github.io/Emanuel/",
   "display": "standalone",
   "background_color": "#1a1a1a",
   "theme_color": "#1a1a1a",
   "icons": [
     {
-      "src": "icon-192.png",
+      "src": "https://solid-sequenz.github.io/Emanuel/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "icon-512.png",
+      "src": "https://solid-sequenz.github.io/Emanuel/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
