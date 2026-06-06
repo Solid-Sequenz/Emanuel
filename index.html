@@ -8,9 +8,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="apple-mobile-web-app-title" content="Emanuel">
 <title>Emanuel</title>
-<link rel="manifest" href="data:application/manifest+json;base64,ewogICJuYW1lIjogIkVtYW51ZWwiLAogICJzaG9ydF9uYW1lIjogIkVtYW51ZWwiLAogICJzdGFydF91cmwiOiAiLiIsCiAgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsCiAgImJhY2tncm91bmRfY29sb3IiOiAiIzFhMWExYSIsCiAgInRoZW1lX2NvbG9yIjogIiMxYTFhMWEiLAogICJpY29ucyI6IFsKICAgIHsKICAgICAgInNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUI0Yld4dWN6MGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TUM5emRtY2lJSGRwWkhSb1BTSTFNVElpSUdobGFXZG9kRDBpTlRFeUlpQjJhV1YzUW05NFBTSXdJREFnTlRFeUlEVXhNaUkrQ2lBZ1BISmxZM1FnZDJsa2RHZzlJalV4TWlJZ2FHVnBaMmgwUFNJMU1USWlJR1pwYkd3OUlpTXhZVEZoTVdFaUx6NEtJQ0E4ZEdWNGRDQjRQU0l5TlRZaUlIazlJak0yTUNJZ1ptOXVkQzFtWVcxcGJIazlJa2RsYjNKbmFXRXNjMlZ5YVdZaUlHWnZiblF0YzJsNlpUMGlNelF3SWlCbWIyNTBMWGRsYVdkb2REMGlZbTlzWkNJZ0NpQWdJQ0JtYVd4c1BTSWpPRFV5TVRBd0lpQjBaWGgwTFdGdVkyaHZjajBpYldsa1pHeGxJajVGUEM5MFpYaDBQZ284TDNOMlp6ND0iLAogICAgICAic2l6ZXMiOiAiNTEyeDUxMiIsCiAgICAgICJ0eXBlIjogImltYWdlL3N2Zyt4bWwiLAogICAgICAicHVycG9zZSI6ICJhbnkgbWFza2FibGUiCiAgICB9CiAgXQp9">
-<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+CiAgPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIGZpbGw9IiMxYTFhMWEiLz4KICA8dGV4dCB4PSIyNTYiIHk9IjM2MCIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtc2l6ZT0iMzQwIiBmb250LXdlaWdodD0iYm9sZCIgCiAgICBmaWxsPSIjODUyMTAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5FPC90ZXh0Pgo8L3N2Zz4=">
-<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+CiAgPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIGZpbGw9IiMxYTFhMWEiLz4KICA8dGV4dCB4PSIyNTYiIHk9IjM2MCIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtc2l6ZT0iMzQwIiBmb250LXdlaWdodD0iYm9sZCIgCiAgICBmaWxsPSIjODUyMTAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5FPC90ZXh0Pgo8L3N2Zz4=">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icon-192.png">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -261,6 +261,25 @@ button:active{transform:scale(.96);}
 .empty-state{text-align:center;padding:32px 16px;color:var(--text-muted);font-size:13px;line-height:1.6;}
 .empty-icon{font-size:28px;margin-bottom:7px;}
 
+/* ══ EXERCISE CHART ══ */
+.ex-chart-btn{background:none;border:none;color:var(--text-muted);cursor:pointer;padding:3px 6px;font-size:11px;display:flex;align-items:center;gap:3px;transition:color .15s;}
+.ex-chart-btn:active{color:var(--accent);}
+.chart-modal{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:300;display:none;align-items:flex-end;justify-content:center;}
+.chart-modal.open{display:flex;animation:fadeOverlay .22s ease;}
+.chart-box{background:var(--surface);border-radius:22px 22px 0 0;padding:20px 16px calc(20px + var(--safe-bottom));width:100%;max-width:520px;animation:slideUp .28s cubic-bezier(.4,0,.2,1);}
+.chart-box-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;}
+.chart-box-title{font-family:'DM Serif Display',serif;font-size:18px;}
+.chart-close{background:none;border:none;color:var(--text-muted);font-size:20px;cursor:pointer;padding:2px 6px;}
+.chart-subtitle{font-size:11px;color:var(--text-muted);margin-bottom:14px;}
+.chart-canvas-wrap{position:relative;width:100%;height:180px;}
+.chart-legend{display:flex;gap:14px;margin-top:10px;flex-wrap:wrap;}
+.chart-legend-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text-muted);}
+.chart-legend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.chart-stat-row{display:flex;gap:10px;margin-top:14px;}
+.chart-stat{flex:1;background:var(--bg);border-radius:10px;padding:10px 12px;text-align:center;}
+.chart-stat-val{font-family:'DM Serif Display',serif;font-size:20px;color:var(--text);}
+.chart-stat-label{font-size:10px;color:var(--text-muted);margin-top:2px;}
+
 /* ══ NOTES ══ */
 .note-card{background:var(--surface);border-radius:14px;border:1px solid var(--line);
   padding:14px 16px;margin-bottom:10px;cursor:pointer;
@@ -419,6 +438,21 @@ button:active{transform:scale(.96);}
   </div>
 </div>
 <div id="ctxBackdrop" style="display:none;position:fixed;inset:0;z-index:299;" onclick="closeCtx()"></div>
+
+<!-- ══ EXERCISE CHART MODAL ══ -->
+<div class="chart-modal" id="chartModal" onclick="closeChartModal(event)">
+  <div class="chart-box">
+    <div class="chart-box-top">
+      <span class="chart-box-title" id="chartTitle"></span>
+      <button class="chart-close" onclick="closeChartModalForce()">✕</button>
+    </div>
+    <div class="chart-subtitle" id="chartSubtitle"></div>
+    <div class="chart-canvas-wrap">
+      <canvas id="chartCanvas" style="width:100%;height:180px;"></canvas>
+    </div>
+    <div class="chart-stat-row" id="chartStats"></div>
+  </div>
+</div>
 
 <!-- NAV -->
 <nav class="nav">
@@ -581,6 +615,7 @@ function injectEvents(){
 function drawNowLine(){
   const grid=document.getElementById('rtGrid');
   grid.querySelectorAll('.rt-now-line').forEach(e=>e.remove());
+  // only show if we're viewing the current week
   const colIdx=ORDERED.indexOf(todayDI);
   if(colIdx===-1)return;
   const rows=grid.querySelectorAll('tbody tr');
@@ -596,7 +631,7 @@ function drawNowLine(){
   const widthPx=cellRect.width;
   const line=document.createElement('div');
   line.className='rt-now-line';
-  line.style.cssText=`top:${topPx}px;left:${leftPx}px;width:${widthPx}px;`;
+  line.style.cssText=`top:${topPx}px;left:${leftPx}px;width:${widthPx}px;position:absolute;`;
   line.innerHTML='<div class="rt-now-dot"></div>';
   grid.style.position='relative';
   grid.appendChild(line);
@@ -1036,6 +1071,10 @@ function renderGymSessions(){
       return `<div class="ex-block">
         <div class="ex-block-header">
           <span class="ex-block-name">${escHtml(ex.name)}</span>
+          ${ex.entries.length>1?`<button class="ex-chart-btn" onclick="openExChart('${ex.id}')">
+            <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"/></svg>
+            Graph
+          </button>`:''}
           <button class="ex-block-delete" onclick="deleteExercise(event,'${session.id}','${ex.id}')">
             <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
           </button>
@@ -1193,6 +1232,106 @@ function deleteCurrentNote(){
   save();
   closeNoteEditor();
 }
+
+// ══ EXERCISE CHART ═══════════════════════════════════════════════════════
+function openExChart(eid){
+  // Find exercise across all sessions
+  let ex=null;
+  for(const s of state.gymSessions){
+    ex=s.exercises.find(e=>e.id===eid);
+    if(ex)break;
+  }
+  if(!ex||ex.entries.length<2)return;
+
+  // Sort entries oldest first
+  const sorted=[...ex.entries].sort((a,b)=>a.ts-b.ts);
+  const kgVals=sorted.map(e=>e.kg);
+  const labels=sorted.map(e=>fmtTs(e.ts));
+  const maxKg=Math.max(...kgVals);
+  const minKg=Math.min(...kgVals);
+  const firstKg=kgVals[0];
+  const lastKg=kgVals[kgVals.length-1];
+  const trend=lastKg>=firstKg?'📈':'📉';
+
+  document.getElementById('chartTitle').textContent=ex.name;
+  document.getElementById('chartSubtitle').textContent=`${sorted.length} Einträge ${trend}`;
+  document.getElementById('chartStats').innerHTML=`
+    <div class="chart-stat"><div class="chart-stat-val">${maxKg}kg</div><div class="chart-stat-label">Bestleistung</div></div>
+    <div class="chart-stat"><div class="chart-stat-val">${lastKg}kg</div><div class="chart-stat-label">Aktuell</div></div>
+    <div class="chart-stat"><div class="chart-stat-val">${lastKg>=firstKg?'+':''}${(lastKg-firstKg).toFixed(1)}kg</div><div class="chart-stat-label">Entwicklung</div></div>
+  `;
+
+  const modal=document.getElementById('chartModal');
+  modal.classList.add('open');
+
+  setTimeout(()=>drawChart(kgVals,labels,maxKg,minKg),30);
+}
+
+function drawChart(vals,labels,maxV,minV){
+  const canvas=document.getElementById('chartCanvas');
+  const dpr=window.devicePixelRatio||1;
+  const rect=canvas.getBoundingClientRect();
+  canvas.width=rect.width*dpr;
+  canvas.height=rect.height*dpr;
+  const ctx=canvas.getContext('2d');
+  ctx.scale(dpr,dpr);
+
+  const W=rect.width, H=rect.height;
+  const pad={top:16,right:16,bottom:28,left:36};
+  const cw=W-pad.left-pad.right;
+  const ch=H-pad.top-pad.bottom;
+  const range=maxV-minV||1;
+
+  const xPos=i=>pad.left+i/(vals.length-1)*cw;
+  const yPos=v=>pad.top+ch-(v-minV)/range*ch;
+
+  // Grid lines
+  ctx.strokeStyle='rgba(255,255,255,.06)';
+  ctx.lineWidth=1;
+  for(let i=0;i<=4;i++){
+    const y=pad.top+ch*i/4;
+    ctx.beginPath();ctx.moveTo(pad.left,y);ctx.lineTo(pad.left+cw,y);ctx.stroke();
+    // Y labels
+    const val=(maxV-(range*i/4)).toFixed(1);
+    ctx.fillStyle='#666';ctx.font=`${9*dpr/dpr}px DM Sans,sans-serif`;ctx.textAlign='right';
+    ctx.fillText(val,pad.left-4,y+3);
+  }
+
+  // Gradient fill
+  const grad=ctx.createLinearGradient(0,pad.top,0,pad.top+ch);
+  grad.addColorStop(0,'rgba(133,33,0,.5)');
+  grad.addColorStop(1,'rgba(133,33,0,0)');
+  ctx.beginPath();
+  ctx.moveTo(xPos(0),yPos(vals[0]));
+  for(let i=1;i<vals.length;i++) ctx.lineTo(xPos(i),yPos(vals[i]));
+  ctx.lineTo(xPos(vals.length-1),pad.top+ch);
+  ctx.lineTo(xPos(0),pad.top+ch);
+  ctx.closePath();
+  ctx.fillStyle=grad;ctx.fill();
+
+  // Line
+  ctx.beginPath();
+  ctx.moveTo(xPos(0),yPos(vals[0]));
+  for(let i=1;i<vals.length;i++) ctx.lineTo(xPos(i),yPos(vals[i]));
+  ctx.strokeStyle='#852100';ctx.lineWidth=2;ctx.lineJoin='round';ctx.stroke();
+
+  // Dots + X labels
+  vals.forEach((v,i)=>{
+    // dot
+    ctx.beginPath();
+    ctx.arc(xPos(i),yPos(v),3.5,0,Math.PI*2);
+    ctx.fillStyle=v===maxV?'#EDEDED':'#852100';ctx.fill();
+    // x label (only first, last, or max)
+    if(i===0||i===vals.length-1||v===maxV){
+      ctx.fillStyle='#666';ctx.font=`${9}px DM Sans,sans-serif`;ctx.textAlign='center';
+      const lbl=labels[i].replace('Heute ','').split(' ')[0];
+      ctx.fillText(lbl,xPos(i),H-6);
+    }
+  });
+}
+
+function closeChartModal(e){if(e.target===document.getElementById('chartModal'))closeChartModalForce();}
+function closeChartModalForce(){document.getElementById('chartModal').classList.remove('open');}
 
 // ══ INIT ═════════════════════════════════════════════════════════════════
 renderGrid();
